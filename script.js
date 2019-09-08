@@ -6,12 +6,13 @@ createMap = () => {
     };
 
     const map = new google.maps.Map(element, options);
-
     google.maps.event.addListener(map, 'click', event => {
         placeMarker(event.latLng, map);
     });
 }
 
 const placeMarker = (position, map) => {
-    new google.maps.Marker({ position, map });
+    const marker = new google.maps.Marker({ position, map });
+    const infoWindow = new google.maps.InfoWindow({ content: "Your marked location" });
+    infoWindow.open(map, marker)
 }
