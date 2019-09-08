@@ -7,5 +7,11 @@ createMap = () => {
 
     const map = new google.maps.Map(element, options);
 
-    new google.maps.Marker({position: options.center, map: map});
+    google.maps.event.addListener(map, 'click', event => {
+        placeMarker(event.latLng, map);
+    });
+}
+
+const placeMarker = (position, map) => {
+    new google.maps.Marker({ position, map });
 }
