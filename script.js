@@ -14,5 +14,9 @@ createMap = () => {
 const placeMarker = (position, map) => {
     const marker = new google.maps.Marker({ position, map });
     const infoWindow = new google.maps.InfoWindow({ content: "Your marked location" });
-    infoWindow.open(map, marker)
+    infoWindow.open(map, marker);
+
+    marker.addListener('click', () => {
+        alert("Hello");
+    });
 }
