@@ -9,7 +9,7 @@ createMap = () => {
     google.maps.event.addListener(map, 'click', event => {
         placeMarker(event.latLng, map);
     });
-}
+};
 
 const placeMarker = (position, map) => {
     const { lat, lng } = position;
@@ -26,7 +26,7 @@ const placeMarker = (position, map) => {
         infoWindow.setContent(contentWithTS);
         infoWindow.open(map, marker);
     });
-}
+};
 
 const getPostalAddr = (map, infoWindow, marker, position, content) => {
     const geocoder = new google.maps.Geocoder;
@@ -39,10 +39,10 @@ const getPostalAddr = (map, infoWindow, marker, position, content) => {
             } else {
                 infoWindow.setContent(content + '<span class="red">Unknown</span>');
                 infoWindow.open(map, marker);
-            }
+            };
         } else {
             infoWindow.setContent(`${content} <span class="red">Geocoder failed - ${status}</span>`);
             infoWindow.open(map, marker);
-        }
+        };
     });
-}
+};
