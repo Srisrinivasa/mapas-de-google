@@ -18,5 +18,6 @@ const placeMarker = (position, map) => {
 
     marker.addListener('click', () => {
         infoWindow.setContent((new Date()).toLocaleString());
+        infoWindow.open(map, marker);
     });
 }
